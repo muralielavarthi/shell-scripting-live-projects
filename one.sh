@@ -1,9 +1,6 @@
 #!/bin/bash
 
-set -x
-
 TIMESTAMP=$(date +"%m-%d-%y-%H-%M")
-FILE_NAME="Users_$TIMESTAMP"
 USER_ID=$UID
 
 function rootValidate(){
@@ -18,7 +15,8 @@ rootValidate $USER_ID
 
 
 mkdir -p /root/Users_Login_Data/
-who | awk '{print $1,$3,$4,$5}' >/root/Users_Login_Data/$FILE_NAME
 
+who > output.txt 
+awk '{print $1,$3,$4,$5}' output.txt >/root/Users_Login_Data/Users_$TIMESTAMP.txt
 
 
