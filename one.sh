@@ -16,7 +16,6 @@ rootValidate $USER_ID
 
 mkdir -p /root/Users_Login_Data/
 
-who > output.txt 
-awk '{print $1,$3,$4,$5}' output.txt >/root/Users_Login_Data/Users_$TIMESTAMP.txt
+who | awk '{print $1,$3,$4,$5}' >/root/Users_Login_Data/Users_$TIMESTAMP.txt
 
 
