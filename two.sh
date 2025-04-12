@@ -16,9 +16,8 @@ find /root/Users_Login_Data/ -type f -name "*.txt" -cmin +60 >old_files.txt
 
 while read line
 do
-    line >> /root/delete.log
+    echo line >> /root/delete.log
     rm -rf line
-    
 done <<< old_files.txt
 
 # -cmin stands for "change", specifically change of file status (not content).
