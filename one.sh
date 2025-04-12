@@ -10,12 +10,9 @@ function rootValidate(){
         exit 1
     fi
 }
-
 rootValidate $USER_ID
-
 
 mkdir -p /root/Users_Login_Data/
 
 who | awk '{print $1,$3,$4,$5}' >/root/Users_Login_Data/Users_$TIMESTAMP.txt
-
 
