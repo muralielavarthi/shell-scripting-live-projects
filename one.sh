@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TIMESTAMP=$(date +"%m-%d-%y-%H-%M")
-FILE_NAME="Users+$TIMESTAMP"
+FILE_NAME="Users_$TIMESTAMP"
 USER_ID=$UID
 
 function rootValidate(){
