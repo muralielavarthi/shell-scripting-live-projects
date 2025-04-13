@@ -12,7 +12,8 @@ function rootValidate(){
 }
 rootValidate $USER_ID
 
-find /root/Users_Login_Data/ -type f -name "*.txt" -mmin +60 >old_files.txt
+find /root/Users_Login_Data/ -type f -name "*.txt" -mmin +60 > old_files.txt
+echo old_files.txt
 
 while read line
 do
