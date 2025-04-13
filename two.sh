@@ -12,14 +12,13 @@ function rootValidate(){
 }
 rootValidate $USER_ID
 
-find /root/Users_Login_Data/ -type f -name "*.txt" -mmin +60 > old_files.txt
-cat old_files.txt
+OLD_FILES=$(find /root/Users_Login_Data/ -type f -name "*.txt" -mmin +60)
 
 while read line
 do
-    echo $line >> /root/Users_Login_Data/delete.log
+    echo "file deleted:$line" >> /root/Users_Login_Data/delete.log
     rm -rf $line
-done < old_files.txt
+done < $OLD_FILES
 
 # -mmin option checks the file's modification time, which refers to the last time the contents of the file were changed
 # -cmin stands for "change", specifically change of file status (not content).
