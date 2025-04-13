@@ -18,7 +18,7 @@ while read line
 do
     echo "file deleted:$line" >> /root/Users_Login_Data/delete.log
     rm -rf $line
-done < $OLD_FILES
+done <<< $OLD_FILES
 
 # -mmin option checks the file's modification time, which refers to the last time the contents of the file were changed
 # -cmin stands for "change", specifically change of file status (not content).
