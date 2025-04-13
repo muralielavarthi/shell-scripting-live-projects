@@ -14,6 +14,14 @@ rootValidate $USER_ID
 
 OLD_FILES=$(find /root/Users_Login_Data/ -type f -name "*.txt" -mmin +60)
 
+OLD_FILES_COUNT=$(find /root/Users_Login_Data/ -type f -name "*.txt" -mmin +60 | wc -l)
+
+if [ $OLD_FILES_COUNT -eq 0 ]
+    then
+        echo "no files found" &>>/root/Users_Login_Data/delete.log
+        exit 1
+fi
+
 while read line
 do
     echo "$line" >> /root/Users_Login_Data/delete.log
