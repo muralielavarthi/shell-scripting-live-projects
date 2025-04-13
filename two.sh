@@ -16,11 +16,11 @@ OLD_FILES=$(find /root/Users_Login_Data/ -type f -name "*.txt" -mmin +60)
 
 while read line
 do
-    echo "file deleted:$line" >> /root/Users_Login_Data/delete.log
+    echo "$line" >> /root/Users_Login_Data/delete.log
     rm -rf $line
 done <<< $OLD_FILES
 
-# -mmin option checks the file's modification time, which refers to the last time the contents of the file were changed
+# -mmin option checks the file's "modification time", which refers to the last time the contents of the file were changed
 # -cmin stands for "change", specifically change of file status (not content).
 # c:change, m:minutes
 # File metadata changed will be checked (permissions,owner,hardlinks,Renaming or moving the file)
